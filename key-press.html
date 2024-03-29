@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Know your key press</title>
+  </head>
+  <body>
+    <h1>Keypress Detection</h1>
+
+    <div id="insert"></div>
+  </body>
+  <script>
+    const insert = document.getElementById("insert");
+
+
+    window.addEventListener('keydown', (e) => {
+        console.log(e);
+        insert.innerHTML = `
+            <div>you pressed the key: ${e.key === ' ' ? 'Spacebar': e.key} and the KeyCode is: ${e.code}</div>
+        `;
+    })
+
+  </script>
+</html>
