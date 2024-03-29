@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Basic Project</title>
+  </head>
+  <body>
+    <h1>Project</h1>
+    <button id="stop">Stop</button>
+  </body>
+  <script>
+    // This function executes ones after the page load in the below code its 1 sec
+    // setTimeout(() => console.log("Called"), 1000);
+
+    // // This function executes every 1 second
+    // setInterval(() => {
+    //   console.log("Calling evry 1second");
+    // }, 1000);
+
+    const sayName = function () {
+      console.log("Abby");
+    };
+
+    const changeText = function () {
+      document.querySelector("h1").innerHTML = "Heya with code";
+    };
+
+    const changeMe = setTimeout(changeText, 2000);
+
+    document.getElementById('stop').addEventListener('click', () => {
+        clearTimeout(changeMe)
+        console.log("stopped");
+    });
+
+  </script>
+</html>
