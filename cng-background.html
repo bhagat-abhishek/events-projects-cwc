@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Change Background</title>
+  </head>
+  <body>
+    <h2>Start should change the background color every second.</h2>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+  </body>
+  <script>
+    let intervalId;
+
+    // Function to create a random number
+    function randomNum(min, max) {
+      const number = Math.floor(Math.random() * (max - min)) + min;
+      return number;
+    }
+
+    // Function to create a random color rgba
+    function randomColor() {
+      return `rgba(${randomNum(0, 255)}, ${randomNum(0, 255)}, ${randomNum(
+        0,
+        255
+      )})`;
+    }
+
+    // Listing to click for event on the start button, chnaging the color of background
+    document.getElementById("start").addEventListener("click", () => {
+      intervalId = setInterval(() => {
+        document
+          .querySelector("body")
+          .style.setProperty("background-color", randomColor());
+      }, 1000);
+    });
+
+    document.getElementById("stop").addEventListener("click", () => {
+      clearInterval(intervalId);
+    });
+  </script>
+</html>
