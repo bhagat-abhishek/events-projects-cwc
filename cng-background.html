@@ -29,15 +29,18 @@
 
     // Listing to click for event on the start button, chnaging the color of background
     document.getElementById("start").addEventListener("click", () => {
-      intervalId = setInterval(() => {
-        document
-          .querySelector("body")
-          .style.setProperty("background-color", randomColor());
-      }, 1000);
+      if (!intervalId) {
+        intervalId = setInterval(() => {
+          document
+            .querySelector("body")
+            .style.setProperty("background-color", randomColor());
+        }, 1000);
+      }
     });
 
     document.getElementById("stop").addEventListener("click", () => {
       clearInterval(intervalId);
+      intervalId = null; // Empting the value
     });
   </script>
 </html>
